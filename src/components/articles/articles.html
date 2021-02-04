@@ -1,0 +1,59 @@
+<div class="content">
+    <div>
+        <div class="content">
+            <div class="category">
+                <h1>Categories</h1>
+                <div class="category_inputs">
+                    <label v-for="category in categories">
+                        <input :value=category
+                               type="radio"
+                               v-model="selectedCategory"
+                               v-on:click="updateList"
+                        />
+                        <span>{{category}}</span>
+                    </label>
+                </div>
+            </div>
+            <div-search :placeholder=getPlaceholderForSearchText()
+                        class="search"
+                        v-on:change_blur="deactivateFilterByText()"
+                        v-on:change_focus="activateFilterByText()"
+                        v-on:change_input="updateListByFilterByText($event)"
+            ></div-search>
+            <h1>Articles</h1>
+            <div class="article p-card" v-for="article in articles">
+                <div v-on:click="setActiveArticle(article)">
+                    <h2 class="p-card__title">{{article.title}}</h2>
+                    <div p-card__content>{{getText(article)}}</div>
+                    <div>{{article.author}}</div>
+                    <div class="article_category">in {{article.category}}</div>
+                </div>
+                <!--TODO! maybe a better practice will be don't use "v-if" ?-->
+                <div class="comments" v-if="isArticleActive(article) && ifAnyCommentsInArticle(article)">
+                    <h2>Comments</h2>
+                    <div class="comments_wrapper" v-for="comment in getComments(article)"
+                         v-if="comment.author && comment.text">
+                        <div>{{comment.text}}</div>
+                        <div>Author: {{comment.author}}</div>
+                        <div v-if="comment.author === getLoggedUserName()">
+                            <button class="btn-remove p-button--neutral" type="submit"
+                                    v-on:click="removeComment(comment)">Remove
+                                comment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="add_comments">
+                    <div class="add_comments_wrapper" v-for="comment in getEditableComments(article)">
+                        <div class="add_comments_author">{{comment.author}}</div>
+                        <input :placeholder=getPlaceholderText() class="form-control" type="text"
+                               v-model="comment.text" v-on:click="clearPlaceholderText(comment)"/>
+                        <button class="btn-add p-button--neutral" type="text" v-on:click="addComment(comment)">Add
+                            comment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

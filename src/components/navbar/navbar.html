@@ -1,0 +1,6 @@
+<div fixed="top" toggleable="md" type="dark" variant="dark">
+    <h1 class="_TM" href="#">TEST APP FOR DORADO GAMES</h1>
+    <div id="nav_" is-nav>
+        <router-link :key="link.name" :to="link.path" exact v-for="link in links">{{link.name}}</router-link>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+.content {
+  margin-top: 50px;
+}
+
+#app-main {
+  font-family: 'Open Sans', sans-serif;
+  width: 80%;
+  max-width: 64rem;
+  margin: auto;
+  padding-top: 1rem;
+}
+
+#nav_ a {
+  color: white;
+}
+
+#nav_ .router-link-active {
+  text-shadow: 1px 1px black;
+}
+
+body * {
+  font-weight: 400;
+}
+
+h1, #nav_ {
+  text-align: center;
+  font-size: 1.875rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+  background: linear-gradient(90deg, #ee8872, #aa1b53);
+  color: white;
+  padding: .25rem;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  margin: 2rem 0;
+  grid-gap: 2rem;
+}
+
+p {
+  padding: .5rem 0;
+  line-height: 1.5;
+}
+
+.category_inputs {
+  display: flex;
+  flex-direction: row;
+}
+
+.category_inputs label {
+  margin: 0;
+  padding: 0.5rem;
+  flex: 1;
+}
+
+.category {
+  padding: .25rem 0;
+  color: #c49cac;
+  line-height: 1.5;
+}

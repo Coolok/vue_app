@@ -1,0 +1,18 @@
+.article_category {
+  padding: .25rem 0;
+  color: #c49cac;
+  line-height: 1.5;
+}
+
+h2 {
+  color: #aa1b53;
+  line-height: normal;
+  font-size: 2rem;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0 3px 15px -2px rgba(0, 0, 0, .1)
+}

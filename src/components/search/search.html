@@ -1,0 +1,9 @@
+<div class="search">
+    <span class="search_title">Search by text</span>
+    <input :placeholder=placeholder
+           class="search_input"
+           v-on:blur=emitBlur
+           v-on:focus=emitFocus
+           v-on:input=emitInput
+    />
+</div>
